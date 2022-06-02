@@ -1,19 +1,27 @@
-import React from "react";
+import React from "react"
 
-const Form = ({handleSubmit, handleNameChange, name, handlePhoneNumChange, phoneNum}) => {
+const Form = ({
+  handleSubmit,
+  handleNameChange,
+  name,
+  handlePhoneNumChange,
+  phoneNum,
+}) => {
   return (
     <form onSubmit={handleSubmit}>
-      <label>Name: </label>
+      <label htmlFor="name-field">Name: </label>
       <input
         type="text"
+        id="name-field"
         onChange={handleNameChange}
         value={name}
         placeholder="First and Last Names"
         style={{ marginRight: "16px" }}
       />
-      <label>Phone Number: </label>
+      <label htmlFor="phone-field">Phone Number: </label>
       <input
         type="tel"
+        id="phone-field"
         onChange={handlePhoneNumChange}
         value={phoneNum}
         pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
@@ -23,6 +31,6 @@ const Form = ({handleSubmit, handleNameChange, name, handlePhoneNumChange, phone
 
       <input type="submit" />
     </form>
-  );
-};
-export default Form;
+  )
+}
+export default Form
