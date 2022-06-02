@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Greeting from './components/Greeting.js'
 import { connect } from 'react-redux'
 import * as contactAction from './actions/contactAction'
+import ContactsList from './components/ContactsList.jsx'
 
 const App = ({ createContact, deleteContact, contacts }) => {
     const [name, setName] = useState('')
@@ -32,18 +33,7 @@ const App = ({ createContact, deleteContact, contacts }) => {
             <Greeting/>
             <h1>React-Redux Contacts List Challenge</h1>
             <hr/>
-            <ul>
-                {contacts.map((contact, index) => {
-                    return (
-                        <div key={index} style={{ display: "flex", marginBottom: "8px" }}>
-                            <li style={{ marginRight: "16px" }}>{contact.name}</li>
-                            <button onClick={(e) => handleDelete(e, index)}>
-                                Remove
-                            </button>
-                        </div>
-                    )
-                })}
-            </ul>
+            <ContactsList contacts={contacts} handleDelete={handleDelete} />
             <div>
                 <h3>Add Contact</h3>
                 <form onSubmit={handleSubmit}>
