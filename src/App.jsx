@@ -6,21 +6,26 @@ import ContactsList from './components/ContactsList.jsx'
 
 const App = ({ createContact, deleteContact, contacts }) => {
     const [name, setName] = useState('')
-
-    const handleChange = (e) => {
+    const [phoneNum, setPhoneNum] = useState('')
+    const handleNameChange = (e) => {
         setName(e.target.value)
+    }
+    const handlePhoneNumChange = (e) => {
+        setPhoneNum(e.target.value)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (!name) {
+        if (!name || !phoneNum) {
           return
         }
         const contact = {
-            name
+            name,
+            phoneNum
         }
         createContact(contact)
         setName('')
+        setPhoneNum('')
     }
 
     const handleDelete = (e, index) => {
@@ -37,7 +42,9 @@ const App = ({ createContact, deleteContact, contacts }) => {
             <div>
                 <h3>Add Contact</h3>
                 <form onSubmit={handleSubmit}>
-                    <input type="text" onChange={handleChange} value={name} style={{ marginRight: "16px" }}/>
+                    <input type="text" onChange={handleNameChange} value={name} style={{ marginRight: "16px" }} />
+                    <input type="tel" onChange={handlePhoneNumChange} value={phoneNum} style={{ marginRight: "16px" }}/>
+
                     <input type="submit"/>
                 </form>
             </div>
