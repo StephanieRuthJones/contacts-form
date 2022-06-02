@@ -1,30 +1,30 @@
-import React, { useState } from 'react';
-import Greeting from './components/Greeting.jsx'
-import { connect } from 'react-redux';
-import * as contactAction from './actions/contactAction';
+import React, { useState } from 'react'
+import Greeting from './components/Greeting.js'
+import { connect } from 'react-redux'
+import * as contactAction from './actions/contactAction'
 
 const App = ({ createContact, deleteContact, contacts }) => {
-    const [name, setName] = useState('');
+    const [name, setName] = useState('')
 
     const handleChange = (e) => {
-        setName(e.target.value);
+        setName(e.target.value)
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         if (!name) {
           return
         }
         const contact = {
             name
         }
-        createContact(contact);
-        setName('');
+        createContact(contact)
+        setName('')
     }
 
     const handleDelete = (e, index) => {
-        e.preventDefault();
-        deleteContact(index);
+        e.preventDefault()
+        deleteContact(index)
     }
 
     return (
@@ -59,13 +59,13 @@ const mapStateToProps = ({ contacts }, ownProps) => {
     return {
         contacts
     }
-};
+}
 
 const mapDispatchToProps = (dispatch) => {
     return {
         createContact: contact => dispatch(contactAction.createContact(contact)),
         deleteContact: index => dispatch(contactAction.deleteContact(index))
     }
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App)

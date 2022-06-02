@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Greeting greets the user 1`] = `
+<DocumentFragment>
+  <div>
+    Hello there!
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Greeting greets the user when the name is unknown 1`] = `
+<DocumentFragment>
+  <div>
+    Hello there!
+  </div>
+</DocumentFragment>
+`;
