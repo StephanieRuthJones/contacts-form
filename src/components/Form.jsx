@@ -12,7 +12,8 @@ const Form = ({
       <label htmlFor="name-field">Name: </label>
       <input
         type="text"
-        id="name-field"
+              id="name-field"
+              name="name"
         onChange={handleNameChange}
         value={name}
         placeholder="First and Last Names"
@@ -22,6 +23,7 @@ const Form = ({
       <input
         type="tel"
         id="phone-field"
+        name="phone"
         onChange={handlePhoneNumChange}
         value={phoneNum}
         pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
