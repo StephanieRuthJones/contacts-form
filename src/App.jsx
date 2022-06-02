@@ -42,8 +42,10 @@ const App = ({ createContact, deleteContact, contacts }) => {
             <div>
                 <h3>Add Contact</h3>
                 <form onSubmit={handleSubmit}>
-                    <input type="text" onChange={handleNameChange} value={name} style={{ marginRight: "16px" }} />
-                    <input type="tel" onChange={handlePhoneNumChange} value={phoneNum} style={{ marginRight: "16px" }}/>
+                    <label>Name: </label>
+                    <input type="text" onChange={handleNameChange} value={name} placeholder="First and Last Names" style={{ marginRight: "16px" }} />
+                    <label>Phone Number: </label>
+                    <input type="tel" onChange={handlePhoneNumChange} value={phoneNum} pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="111-222-3333" style={{ marginRight: "16px" }} />
 
                     <input type="submit"/>
                 </form>
