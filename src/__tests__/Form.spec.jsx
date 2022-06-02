@@ -4,11 +4,11 @@ import userEvent from "@testing-library/user-event";
 import Form from "../components/Form";
 
 describe("Form component", () => {
-  // const name = 'Steph'
-  // const phoneNum = '777-888-9999'
+  const name = 'Steph'
+  const phoneNum = '777-888-9999'
   it("should submit name and phone number", () => {
     // PHASE 1
-    const handleSubmit = jest.fn((e) => e.preventDefault());
+      const handleSubmit = jest.fn((e) => e.preventDefault());
     // render(<Form handleSubmit={handleSubmit} />)
     // const nameInput = screen.getByLabelText(/name/i)
     // fireEvent.change(nameInput, {target: {value: 'Steph'}})
@@ -24,24 +24,24 @@ describe("Form component", () => {
     // PHASE 2 - make test more readable by creating get funcs for each input
     // const handleSubmit = jest.fn(e => e.preventDefault());
 
-    render(<Form handleSubmit={handleSubmit} />);
+      render(<Form handleSubmit={handleSubmit} name={name} phoneNum={phoneNum} />);
     userEvent.type(getNameInput(), name);
     userEvent.type(getPhoneInput(), phoneNum);
     userEvent.click(getSubmitButton());
 
-    expect(handleSubmit).toBeCalled();
+      expect(handleSubmit).toBeCalled();      
   });
-  it("should allow users to type name into form", () => {
-    render(<Form />);
-    userEvent.type(getNameInput(), name);
-    expect(getNameInput().value).toEqual(name);
-  });
-  it("should allow users to type phone number into form", () => {
-    render(<Form />);
-    userEvent.type(getPhoneInput(), phoneNum);
-    expect(getPhoneInput().value).toEqual(phoneNum);
-  });
+//   it("should allow users to type name into form", () => {
+//     render(<Form />);
+//     userEvent.type(getNameInput(), name);
+//     expect(getNameInput().value).toEqual(name);
+//   });
+//   it("should allow users to type phone number into form", () => {
+//     render(<Form />);
+//     userEvent.type(getPhoneInput(), phoneNum);
+//     expect(getPhoneInput().value).toEqual(phoneNum);
+//   });
 });
-// const getNameInput = () => screen.getByLabelText(/name/i);
-// const getPhoneInput = () => screen.getByLabelText(/phone number/i);
-// const getSubmitButton = () => screen.getByRole("button", { name: /submit/i });
+const getNameInput = () => screen.getByLabelText(/name/i);
+const getPhoneInput = () => screen.getByLabelText(/phone number/i);
+const getSubmitButton = () => screen.getByRole("button", { name: /submit/i });
