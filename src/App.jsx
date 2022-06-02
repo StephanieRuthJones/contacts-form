@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Greeting from './components/Greeting.js'
+import Greeting from './components/Greeting.jsx'
 import { connect } from 'react-redux'
 import * as contactAction from './actions/contactAction'
 
