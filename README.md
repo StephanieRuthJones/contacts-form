@@ -1,3 +1,8 @@
+# Setup
+
+[] Fork and clone this repository
+[] `npm i` to install dependencies
+
 # Context
 
 Your are given an existing React-Redux codebase and your challenge will be to refactor the App.jsx file and add a new feature with tests.
